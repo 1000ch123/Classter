@@ -18,6 +18,31 @@
 		064D7A1117095CA300DD0C3E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 064D7A1017095CA300DD0C3E /* Default-568h@2x.png */; };
 		064D7A1417095CA300DD0C3E /* ismViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A1317095CA300DD0C3E /* ismViewController.m */; };
 		064D7A1717095CA300DD0C3E /* ismViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064D7A1517095CA300DD0C3E /* ismViewController.xib */; };
+		064D7A1F17095D6700DD0C3E /* ismNav_Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A1E17095D6700DD0C3E /* ismNav_Login.m */; };
+		064D7A2517096D3400DD0C3E /* ismClassSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A2417096D3400DD0C3E /* ismClassSelect.m */; };
+		064D7A2C17096E9400DD0C3E /* ismWebApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A2817096E9400DD0C3E /* ismWebApi.m */; };
+		064D7A2D17096E9400DD0C3E /* R9HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A2B17096E9400DD0C3E /* R9HTTPRequest.m */; };
+		064D7A391709705700DD0C3E /* ismComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A301709705700DD0C3E /* ismComment.m */; };
+		064D7A3A1709705700DD0C3E /* ismDataClassBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A321709705700DD0C3E /* ismDataClassBase.m */; };
+		064D7A3B1709705700DD0C3E /* ismGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A341709705700DD0C3E /* ismGroup.m */; };
+		064D7A3C1709705700DD0C3E /* ismMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A361709705700DD0C3E /* ismMember.m */; };
+		064D7A3D1709705700DD0C3E /* ismThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A381709705700DD0C3E /* ismThread.m */; };
+		064D7A411709722E00DD0C3E /* ismMainTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A401709722E00DD0C3E /* ismMainTabController.m */; };
+		064D7A49170972F100DD0C3E /* ismTimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A48170972F100DD0C3E /* ismTimeLine.m */; };
+		064D7A4C1709732900DD0C3E /* ismTimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A4B1709732900DD0C3E /* ismTimeTable.m */; };
+		064D7A4F1709736000DD0C3E /* ismBBS.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A4E1709736000DD0C3E /* ismBBS.m */; };
+		064D7A521709737E00DD0C3E /* ismContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A511709737E00DD0C3E /* ismContact.m */; };
+		064D7A551709743100DD0C3E /* ismSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A541709743100DD0C3E /* ismSetting.m */; };
+		064D7A611709950600DD0C3E /* ismCommentBBS.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A601709950600DD0C3E /* ismCommentBBS.m */; };
+		064D7A64170ABFE100DD0C3E /* emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 064D7A63170ABFE100DD0C3E /* emblem.png */; };
+		064D7A66170AC0D400DD0C3E /* emblemResize.png in Resources */ = {isa = PBXBuildFile; fileRef = 064D7A65170AC0D400DD0C3E /* emblemResize.png */; };
+		064D7A68170AC0F600DD0C3E /* emblemResizeNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 064D7A67170AC0F600DD0C3E /* emblemResizeNormal.png */; };
+		064D7A6C170C1D1800DD0C3E /* ismTimeTableComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A6B170C1D1800DD0C3E /* ismTimeTableComments.m */; };
+		064D7A6F170C293C00DD0C3E /* ismTimeTableCommentPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A6E170C293C00DD0C3E /* ismTimeTableCommentPost.m */; };
+		064D7A72170C296F00DD0C3E /* ismTimeTableCommentDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 064D7A71170C296F00DD0C3E /* ismTimeTableCommentDetail.m */; };
+		06E5F32D170D953300F23D09 /* ismContactDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E5F32C170D953300F23D09 /* ismContactDetail.m */; };
+		06E5F331170DE10A00F23D09 /* ismClassAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E5F32F170DE10A00F23D09 /* ismClassAdd.m */; };
+		06E5F332170DE10A00F23D09 /* ismClassAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06E5F330170DE10A00F23D09 /* ismClassAdd.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +62,52 @@
 		064D7A1217095CA300DD0C3E /* ismViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ismViewController.h; sourceTree = "<group>"; };
 		064D7A1317095CA300DD0C3E /* ismViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ismViewController.m; sourceTree = "<group>"; };
 		064D7A1617095CA300DD0C3E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ismViewController.xib; sourceTree = "<group>"; };
+		064D7A1D17095D6700DD0C3E /* ismNav_Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismNav_Login.h; sourceTree = "<group>"; };
+		064D7A1E17095D6700DD0C3E /* ismNav_Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismNav_Login.m; sourceTree = "<group>"; };
+		064D7A2317096D3400DD0C3E /* ismClassSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismClassSelect.h; sourceTree = "<group>"; };
+		064D7A2417096D3400DD0C3E /* ismClassSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismClassSelect.m; sourceTree = "<group>"; };
+		064D7A2717096E9400DD0C3E /* ismWebApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismWebApi.h; sourceTree = "<group>"; };
+		064D7A2817096E9400DD0C3E /* ismWebApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismWebApi.m; sourceTree = "<group>"; };
+		064D7A2A17096E9400DD0C3E /* R9HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R9HTTPRequest.h; sourceTree = "<group>"; };
+		064D7A2B17096E9400DD0C3E /* R9HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = R9HTTPRequest.m; sourceTree = "<group>"; };
+		064D7A2F1709705700DD0C3E /* ismComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismComment.h; sourceTree = "<group>"; };
+		064D7A301709705700DD0C3E /* ismComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismComment.m; sourceTree = "<group>"; };
+		064D7A311709705700DD0C3E /* ismDataClassBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismDataClassBase.h; sourceTree = "<group>"; };
+		064D7A321709705700DD0C3E /* ismDataClassBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismDataClassBase.m; sourceTree = "<group>"; };
+		064D7A331709705700DD0C3E /* ismGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismGroup.h; sourceTree = "<group>"; };
+		064D7A341709705700DD0C3E /* ismGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismGroup.m; sourceTree = "<group>"; };
+		064D7A351709705700DD0C3E /* ismMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismMember.h; sourceTree = "<group>"; };
+		064D7A361709705700DD0C3E /* ismMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismMember.m; sourceTree = "<group>"; };
+		064D7A371709705700DD0C3E /* ismThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismThread.h; sourceTree = "<group>"; };
+		064D7A381709705700DD0C3E /* ismThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismThread.m; sourceTree = "<group>"; };
+		064D7A3F1709722E00DD0C3E /* ismMainTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismMainTabController.h; sourceTree = "<group>"; };
+		064D7A401709722E00DD0C3E /* ismMainTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismMainTabController.m; sourceTree = "<group>"; };
+		064D7A47170972F100DD0C3E /* ismTimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismTimeLine.h; sourceTree = "<group>"; };
+		064D7A48170972F100DD0C3E /* ismTimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismTimeLine.m; sourceTree = "<group>"; };
+		064D7A4A1709732900DD0C3E /* ismTimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismTimeTable.h; sourceTree = "<group>"; };
+		064D7A4B1709732900DD0C3E /* ismTimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismTimeTable.m; sourceTree = "<group>"; };
+		064D7A4D1709736000DD0C3E /* ismBBS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismBBS.h; sourceTree = "<group>"; };
+		064D7A4E1709736000DD0C3E /* ismBBS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismBBS.m; sourceTree = "<group>"; };
+		064D7A501709737E00DD0C3E /* ismContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismContact.h; sourceTree = "<group>"; };
+		064D7A511709737E00DD0C3E /* ismContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismContact.m; sourceTree = "<group>"; };
+		064D7A531709743100DD0C3E /* ismSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismSetting.h; sourceTree = "<group>"; };
+		064D7A541709743100DD0C3E /* ismSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismSetting.m; sourceTree = "<group>"; };
+		064D7A5F1709950600DD0C3E /* ismCommentBBS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismCommentBBS.h; sourceTree = "<group>"; };
+		064D7A601709950600DD0C3E /* ismCommentBBS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismCommentBBS.m; sourceTree = "<group>"; };
+		064D7A63170ABFE100DD0C3E /* emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emblem.png; sourceTree = "<group>"; };
+		064D7A65170AC0D400DD0C3E /* emblemResize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emblemResize.png; path = ../emblemResize.png; sourceTree = "<group>"; };
+		064D7A67170AC0F600DD0C3E /* emblemResizeNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emblemResizeNormal.png; path = ../emblemResizeNormal.png; sourceTree = "<group>"; };
+		064D7A6A170C1D1800DD0C3E /* ismTimeTableComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismTimeTableComments.h; sourceTree = "<group>"; };
+		064D7A6B170C1D1800DD0C3E /* ismTimeTableComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismTimeTableComments.m; sourceTree = "<group>"; };
+		064D7A6D170C293C00DD0C3E /* ismTimeTableCommentPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismTimeTableCommentPost.h; sourceTree = "<group>"; };
+		064D7A6E170C293C00DD0C3E /* ismTimeTableCommentPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismTimeTableCommentPost.m; sourceTree = "<group>"; };
+		064D7A70170C296F00DD0C3E /* ismTimeTableCommentDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismTimeTableCommentDetail.h; sourceTree = "<group>"; };
+		064D7A71170C296F00DD0C3E /* ismTimeTableCommentDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismTimeTableCommentDetail.m; sourceTree = "<group>"; };
+		06E5F32B170D953300F23D09 /* ismContactDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismContactDetail.h; sourceTree = "<group>"; };
+		06E5F32C170D953300F23D09 /* ismContactDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismContactDetail.m; sourceTree = "<group>"; };
+		06E5F32E170DE10A00F23D09 /* ismClassAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ismClassAdd.h; sourceTree = "<group>"; };
+		06E5F32F170DE10A00F23D09 /* ismClassAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ismClassAdd.m; sourceTree = "<group>"; };
+		06E5F330170DE10A00F23D09 /* ismClassAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ismClassAdd.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +154,16 @@
 		064D7A0017095CA300DD0C3E /* Classter */ = {
 			isa = PBXGroup;
 			children = (
+				064D7A62170ABFD200DD0C3E /* resource */,
 				064D7A0917095CA300DD0C3E /* ismAppDelegate.h */,
 				064D7A0A17095CA300DD0C3E /* ismAppDelegate.m */,
-				064D7A1217095CA300DD0C3E /* ismViewController.h */,
-				064D7A1317095CA300DD0C3E /* ismViewController.m */,
+				064D7A1D17095D6700DD0C3E /* ismNav_Login.h */,
+				064D7A1E17095D6700DD0C3E /* ismNav_Login.m */,
 				064D7A1517095CA300DD0C3E /* ismViewController.xib */,
+				064D7A2117096CF500DD0C3E /* login */,
+				064D7A2217096D0900DD0C3E /* classSelect */,
+				064D7A3E170971D000DD0C3E /* mainTab */,
+				064D7A2617096E9400DD0C3E /* ismWebApi */,
 				064D7A0117095CA300DD0C3E /* Supporting Files */,
 			);
 			path = Classter;
@@ -105,6 +181,151 @@
 				064D7A1017095CA300DD0C3E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		064D7A2117096CF500DD0C3E /* login */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A1217095CA300DD0C3E /* ismViewController.h */,
+				064D7A1317095CA300DD0C3E /* ismViewController.m */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		064D7A2217096D0900DD0C3E /* classSelect */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A2317096D3400DD0C3E /* ismClassSelect.h */,
+				064D7A2417096D3400DD0C3E /* ismClassSelect.m */,
+				06E5F32E170DE10A00F23D09 /* ismClassAdd.h */,
+				06E5F32F170DE10A00F23D09 /* ismClassAdd.m */,
+				06E5F330170DE10A00F23D09 /* ismClassAdd.xib */,
+			);
+			name = classSelect;
+			sourceTree = "<group>";
+		};
+		064D7A2617096E9400DD0C3E /* ismWebApi */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A2717096E9400DD0C3E /* ismWebApi.h */,
+				064D7A2817096E9400DD0C3E /* ismWebApi.m */,
+				064D7A2E1709705700DD0C3E /* dataClass */,
+				064D7A2917096E9400DD0C3E /* R9HTTPRequest */,
+			);
+			path = ismWebApi;
+			sourceTree = "<group>";
+		};
+		064D7A2917096E9400DD0C3E /* R9HTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A2A17096E9400DD0C3E /* R9HTTPRequest.h */,
+				064D7A2B17096E9400DD0C3E /* R9HTTPRequest.m */,
+			);
+			path = R9HTTPRequest;
+			sourceTree = "<group>";
+		};
+		064D7A2E1709705700DD0C3E /* dataClass */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A2F1709705700DD0C3E /* ismComment.h */,
+				064D7A301709705700DD0C3E /* ismComment.m */,
+				064D7A311709705700DD0C3E /* ismDataClassBase.h */,
+				064D7A321709705700DD0C3E /* ismDataClassBase.m */,
+				064D7A331709705700DD0C3E /* ismGroup.h */,
+				064D7A341709705700DD0C3E /* ismGroup.m */,
+				064D7A351709705700DD0C3E /* ismMember.h */,
+				064D7A361709705700DD0C3E /* ismMember.m */,
+				064D7A371709705700DD0C3E /* ismThread.h */,
+				064D7A381709705700DD0C3E /* ismThread.m */,
+			);
+			path = dataClass;
+			sourceTree = "<group>";
+		};
+		064D7A3E170971D000DD0C3E /* mainTab */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A3F1709722E00DD0C3E /* ismMainTabController.h */,
+				064D7A401709722E00DD0C3E /* ismMainTabController.m */,
+				064D7A421709727600DD0C3E /* TimeLine */,
+				064D7A431709728600DD0C3E /* TimeTable */,
+				064D7A441709729900DD0C3E /* BBS */,
+				064D7A45170972AE00DD0C3E /* Contact */,
+				064D7A46170972BA00DD0C3E /* Setting */,
+			);
+			name = mainTab;
+			sourceTree = "<group>";
+		};
+		064D7A421709727600DD0C3E /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A47170972F100DD0C3E /* ismTimeLine.h */,
+				064D7A48170972F100DD0C3E /* ismTimeLine.m */,
+			);
+			name = TimeLine;
+			sourceTree = "<group>";
+		};
+		064D7A431709728600DD0C3E /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A4A1709732900DD0C3E /* ismTimeTable.h */,
+				064D7A4B1709732900DD0C3E /* ismTimeTable.m */,
+				064D7A6A170C1D1800DD0C3E /* ismTimeTableComments.h */,
+				064D7A6B170C1D1800DD0C3E /* ismTimeTableComments.m */,
+				064D7A70170C296F00DD0C3E /* ismTimeTableCommentDetail.h */,
+				064D7A71170C296F00DD0C3E /* ismTimeTableCommentDetail.m */,
+				064D7A6D170C293C00DD0C3E /* ismTimeTableCommentPost.h */,
+				064D7A6E170C293C00DD0C3E /* ismTimeTableCommentPost.m */,
+			);
+			name = TimeTable;
+			sourceTree = "<group>";
+		};
+		064D7A441709729900DD0C3E /* BBS */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A4D1709736000DD0C3E /* ismBBS.h */,
+				064D7A4E1709736000DD0C3E /* ismBBS.m */,
+				064D7A5F1709950600DD0C3E /* ismCommentBBS.h */,
+				064D7A601709950600DD0C3E /* ismCommentBBS.m */,
+			);
+			name = BBS;
+			sourceTree = "<group>";
+		};
+		064D7A45170972AE00DD0C3E /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A501709737E00DD0C3E /* ismContact.h */,
+				064D7A511709737E00DD0C3E /* ismContact.m */,
+				06E5F32B170D953300F23D09 /* ismContactDetail.h */,
+				06E5F32C170D953300F23D09 /* ismContactDetail.m */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		064D7A46170972BA00DD0C3E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A531709743100DD0C3E /* ismSetting.h */,
+				064D7A541709743100DD0C3E /* ismSetting.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		064D7A62170ABFD200DD0C3E /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A69170AC10700DD0C3E /* icon */,
+			);
+			name = resource;
+			sourceTree = "<group>";
+		};
+		064D7A69170AC10700DD0C3E /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				064D7A67170AC0F600DD0C3E /* emblemResizeNormal.png */,
+				064D7A65170AC0D400DD0C3E /* emblemResize.png */,
+				064D7A63170ABFE100DD0C3E /* emblem.png */,
+			);
+			name = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +385,10 @@
 				064D7A0F17095CA300DD0C3E /* Default@2x.png in Resources */,
 				064D7A1117095CA300DD0C3E /* Default-568h@2x.png in Resources */,
 				064D7A1717095CA300DD0C3E /* ismViewController.xib in Resources */,
+				064D7A64170ABFE100DD0C3E /* emblem.png in Resources */,
+				064D7A66170AC0D400DD0C3E /* emblemResize.png in Resources */,
+				064D7A68170AC0F600DD0C3E /* emblemResizeNormal.png in Resources */,
+				06E5F332170DE10A00F23D09 /* ismClassAdd.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +402,27 @@
 				064D7A0717095CA300DD0C3E /* main.m in Sources */,
 				064D7A0B17095CA300DD0C3E /* ismAppDelegate.m in Sources */,
 				064D7A1417095CA300DD0C3E /* ismViewController.m in Sources */,
+				064D7A1F17095D6700DD0C3E /* ismNav_Login.m in Sources */,
+				064D7A2517096D3400DD0C3E /* ismClassSelect.m in Sources */,
+				064D7A2C17096E9400DD0C3E /* ismWebApi.m in Sources */,
+				064D7A2D17096E9400DD0C3E /* R9HTTPRequest.m in Sources */,
+				064D7A391709705700DD0C3E /* ismComment.m in Sources */,
+				064D7A3A1709705700DD0C3E /* ismDataClassBase.m in Sources */,
+				064D7A3B1709705700DD0C3E /* ismGroup.m in Sources */,
+				064D7A3C1709705700DD0C3E /* ismMember.m in Sources */,
+				064D7A3D1709705700DD0C3E /* ismThread.m in Sources */,
+				064D7A411709722E00DD0C3E /* ismMainTabController.m in Sources */,
+				064D7A49170972F100DD0C3E /* ismTimeLine.m in Sources */,
+				064D7A4C1709732900DD0C3E /* ismTimeTable.m in Sources */,
+				064D7A4F1709736000DD0C3E /* ismBBS.m in Sources */,
+				064D7A521709737E00DD0C3E /* ismContact.m in Sources */,
+				064D7A551709743100DD0C3E /* ismSetting.m in Sources */,
+				064D7A611709950600DD0C3E /* ismCommentBBS.m in Sources */,
+				064D7A6C170C1D1800DD0C3E /* ismTimeTableComments.m in Sources */,
+				064D7A6F170C293C00DD0C3E /* ismTimeTableCommentPost.m in Sources */,
+				064D7A72170C296F00DD0C3E /* ismTimeTableCommentDetail.m in Sources */,
+				06E5F32D170D953300F23D09 /* ismContactDetail.m in Sources */,
+				06E5F331170DE10A00F23D09 /* ismClassAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +545,7 @@
 				064D7A1C17095CA300DD0C3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

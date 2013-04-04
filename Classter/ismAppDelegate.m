@@ -10,14 +10,25 @@
 
 #import "ismViewController.h"
 
+
+//#import "ismNav_Login.h"
+
 @implementation ismAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
-	self.viewController = [[ismViewController alloc] initWithNibName:@"ismViewController" bundle:nil];
-	self.window.rootViewController = self.viewController;
+	//self.viewController = [[ismViewController alloc] initWithNibName:@"ismViewController" bundle:nil];
+	//self.window.rootViewController = self.viewController;
+	
+	
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+	ismViewController* login = [[ismViewController alloc] init];
+	self.rootcontroller = [[UINavigationController alloc] initWithRootViewController:login];
+	
+	[self.window addSubview:self.rootcontroller.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
