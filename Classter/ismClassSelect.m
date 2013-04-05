@@ -8,6 +8,7 @@
 
 #import "ismClassSelect.h"
 
+
 @interface ismClassSelect ()
 
 @end
@@ -28,23 +29,7 @@
 		self.api.password = [ud objectForKey:@"password"];
 		self.api.userId = [ud objectForKey:@"user_id"];
 		
-		//グループリスト取得
-		[self.api getTime];
-		
-		//NSString* dir = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/groups.dat"];
-		NSString* dir = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
-		NSString* filepath = [dir stringByAppendingPathComponent:@"groups"];
-		NSMutableArray* groupArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filepath];
-		if (groupArray) {
-			NSLog(@"success");
-		}else{
-			NSLog(@"failed.loading");
-			groupArray = [[self.api getGroups] objectForKey:@"groups"];
-		}
-		self.array = groupArray;
-		
-		NSData* tmpGroupData = [NSKeyedArchiver archivedDataWithRootObject:groupArray];
-		[NSKeyedArchiver archiveRootObject:tmpGroupData toFile:dir];
+
 
 		UIBarButtonItem* addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
 																				  target:self
@@ -63,6 +48,25 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	//グループリスト取得
+	[self.api getTime];
+	
+	//NSString* dir = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/groups.dat"];
+	NSString* dir = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
+	NSString* filepath = [dir stringByAppendingPathComponent:@"groups"];
+	NSMutableArray* groupArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filepath];
+	if (groupArray) {
+		NSLog(@"success");
+	}else{
+		NSLog(@"failed.loading");
+		groupArray = [[self.api getGroups] objectForKey:@"groups"];
+	}
+	self.array = groupArray;
+	
+	NSData* tmpGroupData = [NSKeyedArchiver archivedDataWithRootObject:groupArray];
+	[NSKeyedArchiver archiveRootObject:tmpGroupData toFile:dir];
+	
+	[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -143,7 +147,8 @@
 */
 
 -(void)addButtonPushed{
-	
+	ismClassAdd* controller = [[ismClassAdd alloc] init];
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Table view delegate

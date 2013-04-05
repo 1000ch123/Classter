@@ -40,8 +40,9 @@
 		categories = @[@"MON",@"TUE",@"WED",@"THU",@"FRI",@"SAT",@"ETC"];
 		subcategories = @[@"1st",@"2nd",@"3rd",@"4th",@"5th",@"6th",@"ETC"];
 		
+		
 		//授業データ保持インスタンス作成
-		//2段ディクショナリでNSMutableArrayを保持するよ
+		//2段ディクショナリでNSMutableArrayを保持する.まずは場所確保だけ．
 		NSMutableDictionary* lessons = [[NSMutableDictionary alloc]init];
 		for (NSString* key in categories) {
 			NSMutableDictionary* tmpDict = [[NSMutableDictionary alloc]init];
@@ -51,25 +52,35 @@
 			}
 			[lessons setObject:tmpDict forKey:key];
 		}
+	
 		
 		//授業かうんとテーブル初期化
+		/*
 		for (int i=0; i<MAX_CATEGORY; i++) {
 			for (int j=0; j<MAX_SUBCATEGORY; j++) {
 				countTable[i][j] = 0;
 			}
-		}
+		}*/
 		
 		//スレッドデータパース.lessonDictを作る
 		for (NSDictionary* thread in allthreads) {
 			NSString* key = thread[@"category"];
 			NSString* subkey = thread[@"subcategory"];
+			
+			//TODO:
+			
+			//ここで指定termかどうかを確認する．
+			//指定じゃなかったらcontinue
+			
+			//to here
+			
 			[lessons[key][subkey] addObject:thread];
 
 			int tmpThreads = [lessons[key][subkey] count];
 			NSDictionary* tmpThread = lessons[key][subkey][tmpThreads-1];
-			//NSLog(@"lesson:%@ time:%@-%@",thread[@"name"],thread[@"category"],thread[@"subcategory"]);
 			NSLog(@"lesson:%@ time:%@-%@",tmpThread[@"name"],tmpThread[@"category"],tmpThread[@"subcategory"]);
 		}
+		
 		
 		//リスト化する.
 		NSMutableDictionary* lessonList = [[NSMutableDictionary alloc]init];

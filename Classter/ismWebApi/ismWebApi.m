@@ -115,6 +115,24 @@
 	}
 }
 
+-(NSDictionary*)createGroupWithName:(NSString *)groupName{
+	[self getTime];
+	
+	NSArray* vars = @[@"CreateGroup",[self getAuthtoken],groupName];
+	NSArray* keys = @[@"command",@"authtoken",@"name"];
+	
+	return [self useApi:API_GROUPS varList:vars keyList:keys];
+}
+
+-(NSDictionary*)joinGroupWithRegCode:(NSString*)RegCode{
+	[self getTime];
+	
+	NSArray* vars = @[@"JoinGroup",[self getAuthtoken],RegCode];
+	NSArray* keys = @[@"command",@"authtoken",@"regcode"];
+	
+	return [self useApi:API_MEMBERS varList:vars keyList:keys];
+}
+
 
 // members
 -(NSDictionary*)getMembers{
@@ -128,7 +146,16 @@
 	return [self useApi:API_MEMBERS varList:vars keyList:keys];
 }
 
+-(NSDictionary*)getMemberProfile{
+	[self getTime];
+	
+	NSArray* vars = @[@"GetMemberProfile",[self getAuthtoken],self.memberId];
+	NSArray* keys = @[@"command",@"authtoken",@"member_id"];
+	
+	//return [[NSDictionary alloc] initWithDictionary:[self useApi:API_MEMBERS varList:vars keyList:keys]];
+	return [self useApi:API_MEMBERS varList:vars keyList:keys];
 
+}
 
 // notifications
 

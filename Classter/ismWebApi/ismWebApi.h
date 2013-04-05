@@ -47,7 +47,7 @@
 //group
 -(NSDictionary*)getGroups;
 -(NSDictionary*)createGroupWithName:(NSString*)groupName;
--(NSDictionary*)joinGroup;
+-(NSDictionary*)joinGroupWithRegCode:(NSString*)RegCode;
 -(NSDictionary*)getRegCode;
 -(NSDictionary*)changeRegCode;
 

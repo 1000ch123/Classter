@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ismMainTabController.h"
 
+#import "ismClassAdd.h"
+
 @interface ismClassSelect : UITableViewController
 
 @property NSMutableArray* array;

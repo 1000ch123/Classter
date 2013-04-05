@@ -12,6 +12,7 @@
 
 NSArray* setting_classter;
 NSArray* setting_user;
+NSDictionary* userData;
 
 }
 

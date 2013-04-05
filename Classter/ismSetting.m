@@ -34,6 +34,14 @@
     if (self) {
 		self.ud = [[NSUserDefaults alloc]init];
 		self.api = [[ismWebApi alloc]init];
+		
+		//api準備
+		self.api.mailAddress = [self.ud objectForKey:@"mailaddress"];
+		self.api.password = [self.ud objectForKey:@"password"];
+		self.api.userId = [self.ud objectForKey:@"user_id"];
+		self.api.groupId = [self.ud objectForKey:@"group_id"];
+		self.api.memberId = [self.ud objectForKey:@"member_id"];
+		
         // Custom initialization
 		self.title = @"環境設定";
 		
@@ -42,6 +50,8 @@
 		self.settingKeys = @[@"Classterの設定",@"ユーザ情報"];
 		self.settingDict = @{self.settingKeys[SETTING_CLASSTER]:setting_classter,
 					   self.settingKeys[SETTING_USER]:setting_user};
+		
+		userData = [self.api getMemberProfile][@"member"];
     }
     return self;
 }
@@ -85,14 +95,11 @@
 	static NSString* CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-	NSString* cellLabel = self.settingDict[self.settingKeys[indexPath.section]][indexPath.row];
 	
 	// Configure the cell...
 	if (!cell) {
-		cell = [[UITableViewCell alloc] initWithFrame:CGRectZero
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
 									  reuseIdentifier:@"Cell"];
-		
-		
 	}
 
 	
@@ -115,8 +122,65 @@
 	*/
 	// to here
 	
+	NSString* cellLabel = self.settingDict[self.settingKeys[indexPath.section]][indexPath.row];
 	cell.textLabel.text = cellLabel;
 	
+	int sec = indexPath.section;
+	int row = indexPath.row;
+
+	switch (indexPath.section) {
+		case SETTING_CLASSTER:
+			switch (indexPath.row) {
+				case LOGIN:
+					cell.detailTextLabel.text = [self.ud boolForKey:@"autoLogin"] ? @"有効":@"無効";
+					break;
+				case GROUP:
+					
+					break;
+				case PUSH:
+					cell.detailTextLabel.text = [self.ud boolForKey:@"bPushNotification"] ? @"有効":@"無効";
+					break;
+				case TERM:
+					cell.detailTextLabel.text = [self.ud objectForKey:@"groupname"];
+					break;
+				case INVITE:
+					//alertview表示
+					break;
+				default:
+					break;
+			}
+			break;
+		case SETTING_USER:
+			switch (indexPath.row) {
+				case NAME:
+					cell.detailTextLabel.text = userData[@"name"];
+					break;
+				case MAIL:
+					cell.detailTextLabel.text = userData[@"email"];
+					break;
+				case TEL:
+					if ([userData[@"tel_no"] isEqualToString:@""]) {
+						cell.detailTextLabel.text = @"登録してください";
+					}else{
+						cell.detailTextLabel.text = userData[@"tel_no"];
+					}
+					break;
+				case MEMO:
+					if ([userData[@"notes"] isEqualToString:@""]) {
+						cell.detailTextLabel.text = @"登録してください";
+					}else{
+						cell.detailTextLabel.text = userData[@"notes"];
+					}
+					break;
+					
+				default:
+					break;
+			}
+			break;
+		default:
+			break;
+	}
+
 
 	
     return cell;
@@ -177,6 +241,56 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+	
+	BOOL tmpBool;
+	switch (indexPath.section) {
+		case SETTING_CLASSTER:
+			switch (indexPath.row) {
+				case LOGIN:
+					tmpBool = [self.ud boolForKey:@"autoLogin"];
+					[self.ud setBool:!tmpBool forKey:@"autoLogin"];
+					[self.tableView reloadData];
+					break;
+				case GROUP:
+					//ピッカービュー
+					break;
+				case PUSH:
+					tmpBool = [self.ud boolForKey:@"bPushNotification"];
+					[self.ud setBool:!tmpBool forKey:@"bPushNotification"];
+					[self.tableView reloadData];
+					break;
+				case TERM:
+					//ピッカービュー
+					break;
+				case INVITE:
+					//メール起動
+					break;
+				default:
+					break;
+			}
+			break;
+		case SETTING_USER:
+			switch (indexPath.row) {
+				case NAME:
+					
+					break;
+				case MAIL:
+					
+					break;
+				case TEL:
+					
+					break;
+				case MEMO:
+					
+					break;
+					
+				default:
+					break;
+			}
+			break;
+		default:
+			break;
+	}
 }
 
 -(void)loginSwitchPushed:(id)sender{
