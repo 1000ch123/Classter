@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ismCommentBBS.h"
+#import "ismBBSCommentList.h"
+#import "ismBBSThreadAdd.h"
 
 @interface ismBBS : UITableViewController
 
-@property NSMutableArray* array;
+@property NSArray* threadList;
 
 @property ismWebApi *api;
 @property NSUserDefaults *ud;

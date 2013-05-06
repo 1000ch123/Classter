@@ -227,6 +227,8 @@
     // キーボードを隠す
 	[self.view endEditing:YES];
 	
+	[ud setBool:YES forKey:@"reloadData"];
+	
     return YES;
 }
 

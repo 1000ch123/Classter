@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ismCellTextField.h"
 
 @interface ismSetting : UITableViewController{
 

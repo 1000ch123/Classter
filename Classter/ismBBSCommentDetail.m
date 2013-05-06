@@ -1,24 +1,24 @@
 //
-//  ismTimeTableCommentDetail.m
+//  ismBBSCommentDetail.m
 //  Classter
 //
-//  Created by kanade on 13/04/03.
+//  Created by kanade on 13/04/06.
 //  Copyright (c) 2013年 kanade. All rights reserved.
 //
 
-#import "ismTimeTableCommentDetail.h"
+#import "ismBBSCommentDetail.h"
 
-@interface ismTimeTableCommentDetail ()
+@interface ismBBSCommentDetail ()
 
 @end
 
-@implementation ismTimeTableCommentDetail
+@implementation ismBBSCommentDetail
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+		// Custom initialization
 		[self.view setBackgroundColor:[UIColor whiteColor]];
 		
 		// Custom initialization
@@ -60,6 +60,7 @@
 		
     }
     return self;
+
 }
 
 - (void)viewDidLoad
@@ -84,7 +85,6 @@
 	[alert addButtonWithTitle:@"OK"];
 	[alert setCancelButtonIndex:0];
 	[alert show];
-	[self removePost];
 }
 
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

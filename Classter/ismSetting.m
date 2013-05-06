@@ -14,13 +14,19 @@
 #define LOGIN 0
 #define GROUP 1
 #define PUSH 2
-#define TERM 3
-#define INVITE 4
+#define ENTRANCE 3
+#define TERM 4
+#define INVITE 5
+#define CLASSTER_CELLS 6
 
 #define NAME 0
 #define MAIL 1
 #define TEL 2
 #define MEMO 3
+#define USER_CELLS 4
+
+#define CELL_ORIGINAL	0
+#define CELL_TEXT		1
 
 @interface ismSetting ()
 
@@ -45,11 +51,11 @@
         // Custom initialization
 		self.title = @"環境設定";
 		
-		setting_classter = @[@"自動ログイン",@"グループ変更",@"プッシュ通知",@"学期設定",@"友人を招待"];
-		setting_user = @[@"名前",@"メールアドレス",@"電話番号",@"メモ"];
-		self.settingKeys = @[@"Classterの設定",@"ユーザ情報"];
-		self.settingDict = @{self.settingKeys[SETTING_CLASSTER]:setting_classter,
-					   self.settingKeys[SETTING_USER]:setting_user};
+		setting_classter	= @[@"自動ログイン",@"グループ変更",@"プッシュ通知",@"入学年度",@"学期設定",@"友人を招待"];
+		setting_user		= @[@"名前",@"メールアドレス",@"電話番号",@"メモ"];
+		self.settingKeys	= @[@"Classterの設定",@"ユーザ情報"];
+		self.settingDict	= @{self.settingKeys[SETTING_CLASSTER]:setting_classter,
+								self.settingKeys[SETTING_USER]:setting_user};
 		
 		userData = [self.api getMemberProfile][@"member"];
     }
@@ -65,6 +71,9 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+	[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+	[self.tableView registerClass:[ismCellTextField class] forCellReuseIdentifier:@"ismCellTextField"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,42 +101,53 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
    
+	
 	static NSString* CellIdentifier = @"Cell";
+	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-	
 	// Configure the cell...
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
 									  reuseIdentifier:@"Cell"];
 	}
-
+	
+	 
 	
 	//from here
 	/*
-	if ([cellLabel isEqualToString:setting_classter[LOGIN]]) {
-		NSLog(@"cellLabel:%@",cellLabel);
-		UISwitch* sw = [[UISwitch alloc]init];
-		if (![self.ud objectForKey:@"autoLoginAlreadySet"]) {
-			sw.on = YES;
-		}else{
-			sw.on = [self.ud boolForKey:@"autoLogin"];
-		}
-		sw.center = CGPointMake(cell.frame.size.width - sw.frame.size.width * 0.8, cell.center.y);
-		[sw addTarget:self
-			   action:@selector(loginSwitchPushed:)
-	 forControlEvents:UIControlEventValueChanged];
-		[cell.contentView addSubview:sw];
-	}
-	*/
-	// to here
+	int cellMode[CLASSTER_CELLS][USER_CELLS] = {
+		{CELL_ORIGINAL,CELL_ORIGINAL,CELL_ORIGINAL,CELL_ORIGINAL,CELL_ORIGINAL,CELL_ORIGINAL},
+		{CELL_TEXT,CELL_TEXT,CELL_TEXT,CELL_TEXT}
+	};
 	
+	NSLog(@"make cell");
+	int tmpCellMode = cellMode[indexPath.section][indexPath.row];
+	
+	NSString* cellIdentifier = @"";
+	
+	switch (tmpCellMode) {
+		case CELL_ORIGINAL:
+			NSLog(@"in to origin");
+			cellIdentifier = @"cell";
+			break;
+		case CELL_TEXT:
+			NSLog(@"in to text");
+			cellIdentifier = @"ismCellTextField";
+			break;
+		default:
+			NSLog(@"in to default");
+			break;
+	}
+	
+	NSLog(@"make %@ cell",cellIdentifier);
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    */
+	// to here
+
 	NSString* cellLabel = self.settingDict[self.settingKeys[indexPath.section]][indexPath.row];
 	cell.textLabel.text = cellLabel;
 	
-	int sec = indexPath.section;
-	int row = indexPath.row;
-
 	switch (indexPath.section) {
 		case SETTING_CLASSTER:
 			switch (indexPath.row) {
@@ -135,16 +155,20 @@
 					cell.detailTextLabel.text = [self.ud boolForKey:@"autoLogin"] ? @"有効":@"無効";
 					break;
 				case GROUP:
-					
+					cell.detailTextLabel.text = [self.ud objectForKey:@"groupname"];
+
 					break;
 				case PUSH:
 					cell.detailTextLabel.text = [self.ud boolForKey:@"bPushNotification"] ? @"有効":@"無効";
 					break;
+				case ENTRANCE:
+					cell.detailTextLabel.text = [self.ud objectForKey:@"entrance"];
+					break;
 				case TERM:
-					cell.detailTextLabel.text = [self.ud objectForKey:@"groupname"];
+					cell.detailTextLabel.text = [self.ud objectForKey:@"term"];
 					break;
 				case INVITE:
-					//alertview表示
+					//セルに表示はなし
 					break;
 				default:
 					break;
@@ -154,9 +178,12 @@
 			switch (indexPath.row) {
 				case NAME:
 					cell.detailTextLabel.text = userData[@"name"];
+					//cell.textField.text = userData[@"name"];
+					
 					break;
 				case MAIL:
 					cell.detailTextLabel.text = userData[@"email"];
+					//cell.textField.text = userData[@"email"];
 					break;
 				case TEL:
 					if ([userData[@"tel_no"] isEqualToString:@""]) {
@@ -258,6 +285,9 @@
 					tmpBool = [self.ud boolForKey:@"bPushNotification"];
 					[self.ud setBool:!tmpBool forKey:@"bPushNotification"];
 					[self.tableView reloadData];
+					break;
+				case ENTRANCE:
+					//割と固定なきがする
 					break;
 				case TERM:
 					//ピッカービュー

@@ -16,12 +16,12 @@
 #import "ismThread.h"
 #import "ismComment.h"
 
-#define API_COMMON			@"http://classter.jp/api/common"
-#define API_GROUPS			@"http://classter.jp/api/groups"
-#define API_MEMBERS			@"http://classter.jp/api/members"
-#define API_NOTIFICATIONS	@"http://classter.jp/api/notifications"
-#define API_THREADS			@"http://classter.jp/api/threads"
-#define API_COMMENTS		@"http://classter.jp/api/comments"
+#define API_COMMON			@"http://devnextversion.classter.jp/api/common"
+#define API_GROUPS			@"http://devnextversion.classter.jp/api/groups"
+#define API_MEMBERS			@"http://devnextversion.classter.jp/api/members"
+#define API_NOTIFICATIONS	@"http://devnextversion.classter.jp/api/notifications"
+#define API_THREADS			@"http://devnextversion.classter.jp/api/threads"
+#define API_COMMENTS		@"http://devnextversion.classter.jp/api/comments"
 
 
 @interface ismWebApi : NSObject
@@ -69,7 +69,10 @@
 
 -(NSDictionary*)getThreads;//掲示板ページ遷移時.グループIDからスレッド特定
 -(NSDictionary*)getThreadDetail; //いつよぶ？
--(NSDictionary*)createThreadWithName:(NSString*)threadName;
+-(NSDictionary*)createThreadWithName:(NSString*)threadName
+								term:(NSString*)term
+							category:(NSString*)cat
+						  subcaegory:(NSString*)subcat;
 -(NSDictionary*)updateThread;
 -(NSDictionary*)removeThread;
 

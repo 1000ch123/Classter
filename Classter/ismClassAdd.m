@@ -77,6 +77,10 @@
 	[alert show];
 }
 
+- (IBAction)cancelButton:(id)sender {
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == alertView.cancelButtonIndex) {
 		return;
@@ -101,11 +105,12 @@
 		default:
 			break;
 	}
-	[self.navigationController popViewControllerAnimated:YES];
+	//[self.navigationController popViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 	return;
 }
 
--(void)textFieldShouldReturn:(UITextField*)textField{
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
 	NSLog(@"textFieldshouldReturn called");
 	if (textField.tag == ADD_FIELD) {
 		addGroupName = textField.text;
@@ -113,5 +118,6 @@
 		joinGroupCode = textField.text;
 	}
 	[textField resignFirstResponder];
+	return YES;
 }
 @end

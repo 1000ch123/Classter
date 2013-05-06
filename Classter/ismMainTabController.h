@@ -10,4 +10,6 @@
 
 @interface ismMainTabController : UITabBarController
 
+@property ismWebApi* api;
+
 @end

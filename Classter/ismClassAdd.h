@@ -20,5 +20,6 @@
 
 - (IBAction)addButton:(id)sender;
 - (IBAction)joinButton:(id)sender;
+- (IBAction)cancelButton:(id)sender;
 
 @end

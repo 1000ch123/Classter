@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ismTimeTableComments.h"
+#import "ismTimeTableAdd.h"
 
 #define MAX_CATEGORY 7
 #define MAX_SUBCATEGORY 7

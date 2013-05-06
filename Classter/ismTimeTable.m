@@ -29,6 +29,11 @@
 		self.api.groupId = [self.ud objectForKey:@"group_id"];
 		self.api.memberId = [self.ud objectForKey:@"member_id"];
 		
+		if ([self.ud objectForKey:@"term"]==NULL) {
+			NSLog(@"no term registered");
+			[self.ud setObject:@"2013-1" forKey:@"term"];
+		}
+		
 		NSString* groupname = [self.ud objectForKey:@"groupname"];
 		self.title = @"時間割";
 		self.navigationItem.title = [NSString stringWithFormat:@"%@の時間割",groupname];
@@ -71,7 +76,7 @@
 			
 			//ここで指定termかどうかを確認する．
 			//指定じゃなかったらcontinue
-			
+		
 			//to here
 			
 			[lessons[key][subkey] addObject:thread];
@@ -99,7 +104,7 @@
 		
 		UIBarButtonItem* plus = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
 																			 target:self
-																			 action:nil];
+																			 action:@selector(addButtonPushed)];
 		self.navigationItem.rightBarButtonItem = plus;
     }
     return self;
@@ -278,6 +283,13 @@
 
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 	return categories[section];
+}
+
+-(void)addButtonPushed{
+	NSLog(@"add button pushed");
+	ismTimeTableAdd* controller = [[ismTimeTableAdd alloc]init];
+	//[self.navigationController pushViewController:controller animated:YES];
+	[self presentViewController:controller animated:YES completion:nil];
 }
 
 @end

@@ -1,40 +1,48 @@
 //
-//  ismClassSelect.m
+//  ismBBSCommentList.m
 //  Classter
 //
-//  Created by kanade on 13/04/01.
+//  Created by kanade on 13/04/06.
 //  Copyright (c) 2013年 kanade. All rights reserved.
 //
 
-#import "ismClassSelect.h"
+#import "ismBBSCommentList.h"
 
-
-@interface ismClassSelect ()
+@interface ismBBSCommentList ()
 
 @end
 
-@implementation ismClassSelect
+@implementation ismBBSCommentList
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-		NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-		self.title = @"Group Select";
+		self.ud = [[NSUserDefaults alloc]init];
+		self.api =[[ismWebApi alloc]init];
 		
-		//API使う準備
-		self.api = [[ismWebApi alloc]init];
-		self.api.mailAddress = [ud objectForKey:@"mailaddress"];
-		self.api.password = [ud objectForKey:@"password"];
-		self.api.userId = [ud objectForKey:@"user_id"];
+		self.api.mailAddress	= [self.ud objectForKey:@"mailaddress"];
+		self.api.password		= [self.ud objectForKey:@"password"];
+		self.api.userId			= [self.ud objectForKey:@"user_id"];
+		self.api.groupId		= [self.ud objectForKey:@"group_id"];
+		self.api.memberId		= [self.ud objectForKey:@"member_id"];
 		
+		self.api.threadId		= [self.ud objectForKey:@"thread_id"];
+		
+		offset = 0;
+		limit = 100;
+		
+		NSDictionary* resDict = [self.api getComments:offset limit:limit];
+		
+		self.commentList = resDict[@"comments"];
 
+		//バーボタンに＋マーク表示
+		UIBarButtonItem* plus = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+																			 target:self
+																			 action:@selector(addButtonPushed)];
+		self.navigationItem.rightBarButtonItem = plus;
 
-		UIBarButtonItem* addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-																				  target:self
-																				  action:@selector(addButtonPushed)];
-		self.navigationItem.rightBarButtonItem = addButton;
     }
     return self;
 }
@@ -48,26 +56,29 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	//グループリスト取得
-	[self.api getTime];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
 	
-	//NSString* dir = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp/groups.dat"];
-	NSString* dir = [NSHomeDirectory() stringByAppendingPathComponent:@"tmp"];
-	NSString* filepath = [dir stringByAppendingPathComponent:@"groups"];
-	NSMutableArray* groupArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filepath];
-	if (groupArray) {
-		NSLog(@"success");
-	}else{
-		NSLog(@"failed.loading");
-		groupArray = [[self.api getGroups] objectForKey:@"groups"];
+	if (![_ud boolForKey:@"reloadData"]) {
+		return;
 	}
-	self.array = groupArray;
 	
-	NSData* tmpGroupData = [NSKeyedArchiver archivedDataWithRootObject:groupArray];
-	[NSKeyedArchiver archiveRootObject:tmpGroupData toFile:dir];
+	[_ud setBool:NO forKey:@"reloadData"];
+	NSLog(@"comments reload");
+	
+	self.api.threadId		= [self.ud objectForKey:@"thread_id"];
+	NSLog(@"thread_id:%@",self.api.threadId);
+	
+	NSDictionary* resDict = [self.api getComments:offset limit:limit];
+	
+	self.commentList = resDict[@"comments"];
 	
 	[self.tableView reloadData];
+	
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -79,32 +90,38 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.array count];
+    return [self.commentList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];// forIndexPath:indexPath];
+	static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+	// Configure the cell...
 	if (!cell) {
-		cell = [[UITableViewCell alloc] initWithFrame:CGRectZero
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
 									  reuseIdentifier:@"Cell"];
 	}
-	NSLog(@"%@",self.array);
-	cell.textLabel.text = [[self.array objectAtIndex:indexPath.row] objectForKey:@"groupname"];
+	// Configure the cell...
 	
-    return cell;
+	NSLog(@"called making cell");
+	if (self.commentList) {
+		cell.textLabel.text = self.commentList[indexPath.row][@"title"];
+		cell.detailTextLabel.text = self.commentList[indexPath.row][@"created"];
+	}else{
+		cell.textLabel.text = @"コメントがありません";
+	}
+	return cell;
 }
 
 /*
@@ -146,14 +163,6 @@
 }
 */
 
--(void)addButtonPushed{
-	ismClassAdd* controller = [[ismClassAdd alloc] init];
-	
-	//モーダル表現にしたいね
-	//[self.navigationController pushViewController:controller animated:YES];
-	[self presentViewController:controller animated:YES completion:nil];
-}
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,27 +174,17 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+	[self.ud setObject:self.commentList[indexPath.row][@"comment_id"] forKey:@"comment_id"];
+	ismBBSCommentDetail* controller = [[ismBBSCommentDetail alloc]init];
 	
-	
-	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-	NSDictionary* tmpGroup = [self.array objectAtIndex:indexPath.row];
-	
-	[ud setObject:[tmpGroup objectForKey:@"group_id"] forKey:@"group_id"];
-	[ud setObject:[tmpGroup objectForKey:@"groupname"] forKey:@"groupname"];
-	[ud setObject:[tmpGroup objectForKey:@"member_id"] forKey:@"member_id"];
-	
-	//NSLog(@"output test");
-	//NSLog(@"obj:%@",[ud objectForKey:@"tmpGroup"]);
-	//NSLog(@"obj_inner:%@",[[ud objectForKey:@"tmpGroup"]objectForKey:@"groupname"]);
-
-	
-	ismMainTabController *tab = [[ismMainTabController alloc] init];
-	NSLog(@"api set");
-	tab.api = self.api;
-	NSLog(@"navigation move to tab");
-	[self.navigationController setNavigationBarHidden:YES];
-	[self.navigationController pushViewController:tab animated:YES];
-	
+	[self.navigationController pushViewController:controller animated:YES];
 }
+
+-(void)addButtonPushed{
+	NSLog(@"add button pushed");
+	ismBBSCommentPost* controller = [[ismBBSCommentPost alloc]init];
+	[self presentViewController:controller animated:YES completion:nil];
+}
+
 
 @end

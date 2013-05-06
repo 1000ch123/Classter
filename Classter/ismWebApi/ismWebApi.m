@@ -180,6 +180,14 @@
 	return [[NSDictionary alloc] initWithDictionary:[self useApi:API_THREADS varList:vars keyList:keys]];
 }
 
+-(NSDictionary*)createThreadWithName:(NSString *)threadName term:(NSString *)term category:(NSString *)cat subcaegory:(NSString *)subcat{
+	[self getTime];
+	NSArray* vars = @[@"CreateThread",[self getAuthtoken],self.groupId,term,cat,subcat,threadName ];
+	NSArray* keys = @[@"command",@"authtoken",@"group_id",@"term",@"category",@"subcategory",@"name"];
+	
+	return [[NSDictionary alloc] initWithDictionary:[self useApi:API_THREADS varList:vars keyList:keys]];
+}
+
 
 //comment
 -(NSDictionary*)getComments:(int)offset limit:(int)limit{
